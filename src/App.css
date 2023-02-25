@@ -19,7 +19,7 @@ body {
   overflow: hidden;
   color: var(--black);
   background-color: #f3f3f3;
-  padding: 1rem 1rem;
+  /* padding: 1rem 1rem; */
 }
 .blur{
  position: absolute;
@@ -191,10 +191,10 @@ svg {
 }
 
 .input-search {
-  /* display: flex;
+  display: flex;
     align-items: center;
-    justify-content: center; */
-  /* margin-top: 30vh; */
+    justify-content: center; 
+   margin-top: 30vh;
   width: 300px;
   margin-left: 500px;
 
@@ -208,6 +208,7 @@ svg {
   background-color: rgb(0, 7, 61);
   color: white;
   height: 100vh;
+  z-index: 999;
 }
 
 a {
@@ -530,6 +531,7 @@ input::placeholder {
 .back-img {
   width: 100%;
   height: 70vh;
+  
   background-repeat: no-repeat;
   background-size: 100% 70vh;
   /* margin-top: 20rem; */
@@ -537,13 +539,24 @@ input::placeholder {
   background-image: url("./asstes/images/lms-img2.jpg");
 }
 
-.input-search {
-  width: 23rem;
 
-  padding: 7px;
- position: relative;
-  margin-top: 340px;
 
+.inputs-bar {
+margin-top: 27rem;
+ padding: 12px;
+ width: 15rem;
+ border-bottom: 1px solid red;
+ border-radius: 10px;
+ 
+
+ 
+
+
+}
+.serch-bar{
+  display: flex;
+align-items: center;
+justify-content: center;
 
 }
 

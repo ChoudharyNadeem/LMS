@@ -3,10 +3,13 @@ import { addCourse } from "../../Api/Api";
 
 const AddCourse = () => {
   const [showImg, setShowImg] = useState("");
+  const[image,setImage]=useState('')
   const [getValue, setGetValue]=useState({
    description:'',
     slug:'',
     title:'',
+    image:'',
+    
 
 
   })
@@ -25,13 +28,15 @@ if(name==="title"){
 
   }
 
-  console.log(getValue)
+  
 
   const handlechange = (e) => {
     setShowImg(URL.createObjectURL(e.target.files[0]));
+    setImage(e.target.files[0])
+    console.log("image",image)
   };
 
-  console.log(showImg);
+  
 
   const imageRef = useRef(null);
 
@@ -44,7 +49,8 @@ if(name==="title"){
     formData.append('title',getValue.title)
     formData.append('description',getValue.description)
     formData.append('slug',slug)
-    const res = await  addCourse(formData,showImg);
+    formData.append('image',image)
+    const res = await  addCourse(formData,image,slug);
     console.log(res)
   }
 
@@ -67,7 +73,7 @@ if(name==="title"){
         style={{ width: "800px", }}
       >
         
-        <textarea rows={6} type="text" placeholder="Description" name='Description' onChange={handleChange} />
+        <textarea rows={6} type="text" placeholder="Description" name='description' onChange={handleChange} />
       </div>
       <div className="showImages">
         <div>
@@ -87,7 +93,7 @@ if(name==="title"){
         </div>
       </div>
       <div style={{ alignSelf:"flex-end", display:'flex'}}>
-      <button className="btn  btn-success shadow ms-auto" onClick={getCourse}>
+      <button className="btn  btn-success shadow " onClick={getCourse}>
       Add Course
           </button>
 

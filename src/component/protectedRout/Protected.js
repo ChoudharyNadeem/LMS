@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 const Protected = (props) => {
-    const {Component}=props
+    const {Home}=props
     const Navigate = useNavigate();
     useEffect(()=>{
     let login = localStorage.getItem("token");
@@ -14,7 +14,7 @@ const Protected = (props) => {
     
   return (
     <div>
-      <Component/>
+      <Home/>
     </div>
   )
 }
