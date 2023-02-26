@@ -8,22 +8,10 @@ export const NavLink = [
   },
 
   {
-    title: "Signup/Login",
+    title: "Register",
     path: "/Signup",
   },
 
-  {
-    title: "Logout",
-    path: "/Logout",
-  },
-  {
-    title: "Session",
-    path: "/Session",
-  },
-  {
-    title: "Dashboard",
-    path: "/dashboard",
-  },
 ];
 
 export const sidebarRoute = [

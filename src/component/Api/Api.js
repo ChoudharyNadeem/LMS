@@ -20,6 +20,13 @@ export const userLogin = async (user) => {
     console.log("Error while calling userLogin API", error);
   }
 };
+export const userLogout = async () => {
+  try {
+    return await axios.post(`${URL}/api/logout`);
+  } catch (error) {
+    console.log("Error while calling userLogout API", error);
+  }
+};
 
 export const fetchAllcourse = async () => {
   try {
@@ -31,7 +38,7 @@ export const fetchAllcourse = async () => {
 
 export const fetchSingleCourse = async (slug) => {
   try {
-    return await axios.get(`${URL}/api/course/${slug}`);
+    return await axios.get(`${URL}/api/course/single/${slug}`);
   } catch (error) {
     console.log(error);
   }
@@ -52,7 +59,7 @@ export const addCourse = async (course, image, slug) => {
 };
 export const adminCourse = async () => {
   try {
-    return await axios.get(`${URL}/api/admin/course`, config);
+    return await axios.get(`${URL}/api/admin/profile`, config);
   } catch (error) {
     console.log(error);
   }

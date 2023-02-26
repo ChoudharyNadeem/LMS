@@ -4,17 +4,17 @@ import { adminCourse } from "../../Api/Api";
 import Coursecard from "../../Coursecard";
 
 const Dasboard = () => {
-  const [course,setCourse]=useState()
+  // const [course,setCourse]=useState()
+const {course}=useSelector((state)=>state.adminProfile)
+  // const fetAdminCourse=async()=>{
+  //   const res = await adminCourse()
+  //   console.log(res)
+  //   setCourse(res.data.course)
+  // }
 
-  const fetAdminCourse=async()=>{
-    const res = await adminCourse()
-    console.log(res)
-    setCourse(res.data.course)
-  }
-
-  useEffect(()=>{
-    fetAdminCourse();
-  },[])
+  // useEffect(()=>{
+  //   fetAdminCourse();
+  // },[])
 
   // const { isLoading, courses } = useSelector((state) => state.allCourses);
 

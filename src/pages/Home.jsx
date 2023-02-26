@@ -78,7 +78,7 @@ function Home() {
         />
        
       </div>
-      <div className=" d-flex aling-items-center mt-5 justify-content-center gap-4 ">
+      <div className="mt-5 ">
         <div className="row">
           {courseData?.map((course) => {
             return (

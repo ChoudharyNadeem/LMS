@@ -1,14 +1,34 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { NavLink } from "../datasource/navlinks";
+import { userLogout } from "./Api/Api";
+import { useNavigate } from "react-router-dom";
+import { useSelector,useDispatch } from "react-redux";
 
 function Navbar() {
+  const {admin}=useSelector((state)=>state.adminProfile)
+  const navigate=useNavigate();
+const dispatch=useDispatch()
+const handleUserLogout =async ()=>{
+
+  const res = await userLogout();
+  console.log('res',res.data.message)
+  alert(res?.data?.message)
+  window.localStorage.removeItem('token')
+  dispatch({
+    type:'resetProfile'
+  })
+  navigate("/Signup")
+
+}
+
+
   return (
     <div className="main-containner shadow-sm">
       <span>
         LMS
         <sub style={{ color: " rgb(104, 122, 122)", marginLeft: "10px" }}>
-          Lernen Mit System
+          Learning Management System
         </sub>
       </span>
       <svg
@@ -30,10 +50,20 @@ function Navbar() {
       {/* <img src="https://getvectorlogo.com/wp-content/uploads/2019/05/lms-lernen-mit-system-vector-logo.png" width="128" height="50"/> */}
 
       <div className="NavLink">
-        {NavLink.map((link) => {
-          return <Link to={link.path}>{link.title}</Link>;
-        })}
+        {NavLink?.map((link) => {
+         
 
+          return(
+          <>
+          <Link to={link.path}>{link.title}</Link>
+          
+                    </>
+         )
+          
+        })}
+{
+  admin?.role=="admin" && <Link to="/Dashboard">Dashboard</Link> 
+}
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="16"
@@ -50,6 +80,7 @@ function Navbar() {
           height="16"
           fill="currentColor"
           className="bi bi-power"
+          onClick={handleUserLogout}
           viewBox="0 0 16 16"
         >
           <path d="M7.5 1v7h1V1h-1z" />

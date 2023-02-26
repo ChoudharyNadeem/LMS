@@ -5,7 +5,7 @@ import { Link, useParams } from 'react-router-dom'
 import { fetchSingleCourse } from './Api/Api'
 
 function Details() {
-  // const[singleCourse,setSingleCourse]=useState({})
+  
 
   const{isLoading,singleCourse}=useSelector((state)=>state. singleCourse)
   console.log('singleCourse',singleCourse,isLoading
@@ -22,7 +22,7 @@ const getSingleCourse=async()=>{
   })
 
   const course=await fetchSingleCourse(param.title);
-  // console.log('cpurse',course.data.singleCourse)
+  console.log('cpurse',course.data)
   // setSingleCourse(course.data.singleCourse)
  
   dispatch({
@@ -68,7 +68,7 @@ const cardIcons=<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" f
     <p>Lorem ipsum,  Sunt temporibus perspiciatis assumenda libero, nisi quo aspernatur eveniet veritatis fuga obcaecati iste aliquid beatae praesentium dolorem</p>
     </div>
     <div className="cardIcon">
-    <span>4.5</span>
+    <span >4.5</span>
     {cardicons}
     {cardicons}
     {cardicons}
@@ -108,7 +108,7 @@ const cardIcons=<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" f
     </div>
     <div className="startButton">
       <Link to={`/Details/${param.title}/${slug}`}>
-      <button className='btn btn-primary'>Satrt Course</button>
+      <button className='btn btn-primary'>Start Course</button>
       </Link>
     </div>
     <div className="hsicon">

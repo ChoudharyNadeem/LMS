@@ -13,9 +13,36 @@ import Course from "./component/common/Sidbar/Course";
 import AddCourse from "./component/common/Sidbar/AddCourse"; 
 import Protected from "./component/protectedRout/Protected";
 import axios from 'axios';
+import { adminCourse } from "./component/Api/Api";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 axios.defaults.withCredentials = true;                                                     
 
 function App() {
+const dispatch=useDispatch();
+const getAdminProfile=async()=>{
+  dispatch({
+    type:'requestProfile',
+  });
+  const {data}=await adminCourse();
+  if(data?.success){
+    const{admin,adminCourse}=data;
+    dispatch({
+      type:'successProfile',
+      payload:{
+        admin:admin,
+        course:adminCourse
+      }
+    })
+ 
+  }
+
+}
+
+useEffect(()=>{
+  getAdminProfile()
+},[])
+
   return (
     <div className="App">
       <div className="blur" style={{ top: "-18%", right: "0" }}></div>
@@ -28,7 +55,7 @@ function App() {
         <Route path="/Details/:title" element={<Details />} />
         <Route path="/Details/:title/:slug" element={<Session />} />
         <Route path="/Signup" element={<Signup />} />
-        <Route exact path="/dashboard" element={<Admin />}>
+        <Route exact path="/dashboard" element={<Protected Home={Admin} />}>
           <Route 
             exact
             path="/dashboard"

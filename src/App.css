@@ -16,12 +16,12 @@ body {
 }
 .App{
 
-  overflow: hidden;
+  /* overflow: hidden;
   color: var(--black);
   background-color: #f3f3f3;
-  /* padding: 1rem 1rem; */
+  padding: 1rem 1rem; */
 }
-.blur{
+/* .blur{
  position: absolute;
 
  width: 22rem;
@@ -29,7 +29,7 @@ body {
  border-radius: 50%;
  background-color: #a6ddf0 ;
  filter: blur(72px);
-}
+} */
 
 .main-containner {
   display: flex;
@@ -152,8 +152,8 @@ svg {
   height: 20rem;
   width: 100%;
   line-height: 30px;
-  background-color: black;
-  color: white;
+  background-color: rgb(124, 30, 30);
+  color: rgb(229, 236, 243);
 }
 
 .dea-per {
